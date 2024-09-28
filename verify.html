@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email Verification</title>
+  <link rel="stylesheet" href="login_style.css">
+  <link rel="stylesheet" href="verify.html">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+</head>
+<body>
+  <div id="loader-page">
+    <div class="loader"></div>
+  </div>
+  
+  <div id="verification-page">
+    <div class="theme-switch-wrapper">
+      <label class="theme-switch" for="checkbox">
+        <input type="checkbox" id="checkbox" />
+        <div class="slider">
+          <i class='bx bx-sun'></i>
+          <i class='bx bx-moon'></i>
+        </div>
+      </label>
+    </div>
+    <div class="wrapper">
+      <form id="verificationForm">
+        <h1 style="font-size: 31px; margin-bottom: 20px;">Email Verification</h1>
+        <div class="verification-message">
+          <p>We've sent a verification code to your email. Please enter it below to verify your account.</p>
+        </div>
+        <div class="input-box">
+          <input type="text" placeholder="Verification Code" required>
+          <i class='bx bx-check-circle'></i>
+        </div>
+        <button type="submit" class="btn">Verify Email</button>
+        <div class="register-link">
+          <p>Didn't receive the code? <a href="#">Resend</a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="../registration_pages/verify.js"></script>
+</body>
+</html>

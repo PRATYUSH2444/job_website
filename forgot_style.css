@@ -1,0 +1,149 @@
+:root {
+    --bg-color: #fff;
+    --text-color: #000;
+    --wrapper-bg: rgba(255, 255, 255, 0.05);
+    --wrapper-border: rgba(255, 255, 255, 0.1);
+    --input-border: rgba(255, 255, 255, 0.2);
+    --input-color: #000;
+    --placeholder-color: #000;
+    --slider-bg: #ccc;
+    --slider-before-bg: #fff;
+    --slider-checked-bg: #fff;
+    --sun-icon-color: #000;
+    --moon-icon-color: #000;
+    --link-color: #0066cc;
+    --input-bg: rgba(169, 169, 169, 0.4);
+    --btn-bg: #4285f4;
+    --btn-text: #fff;
+    --btn-hover-bg: #3367d6;
+    --divider-text-color: black;
+  }
+  [data-theme="dark"] {
+    --bg-color: #333;
+    --text-color: #fff;
+    --wrapper-bg: rgba(0, 0, 0, 0.05);
+    --wrapper-border: rgba(255, 255, 255, 0.05);
+    --input-border: rgba(255, 255, 255, 0.3);
+    --input-color: #fff;
+    --placeholder-color: #ddd;
+    --slider-bg: #555;
+    --slider-before-bg: #fff;
+    --slider-checked-bg: #555;
+    --sun-icon-color: #fff;
+    --moon-icon-color: #000;
+    --link-color: #66ccff;
+    --input-bg: rgba(0, 0, 0, 0.3);
+    --btn-bg: #4285f4;
+    --btn-text: #fff;
+    --btn-hover-bg: #5294ff;
+    --divider-text-color: var(--text-color);
+  }
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+  .wrapper {
+    background: var(--wrapper-bg);
+    border-color: var(--wrapper-border);
+    border-radius: 16px;
+    transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+  .input-box input {
+    border-color: var(--input-border);
+    color: var(--input-color);
+    background-color: var(--input-bg);
+    transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+  .input-box input::placeholder {
+    color: var(--placeholder-color);
+    transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+  .theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+  .theme-switch {
+    display: inline-block;
+    height: 34px;
+    position: relative;
+    width: 60px;
+  }
+  .theme-switch input {
+    display:none;
+  }
+  .slider {
+    background-color: var(--slider-bg);
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+  }
+  .slider:before {
+    background-color: var(--slider-before-bg);
+    bottom: 4px;
+    content: "";
+    height: 26px;
+    left: 4px;
+    position: absolute;
+    transition: .4s;
+    width: 26px;
+  }
+  input:checked + .slider {
+    background-color: var(--slider-checked-bg);
+  }
+  input:checked + .slider:before {
+    transform: translateX(26px);
+  }
+  .slider.round {
+    border-radius: 34px;
+  }
+  .slider.round:before {
+    border-radius: 50%;
+  }
+  .theme-switch .bx {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    z-index: 1;
+    transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+  .theme-switch .bx-sun {
+    left: 6px;
+    color: var(--sun-icon-color);
+  }
+  .theme-switch .bx-moon {
+    right: 6px;
+    color: var(--moon-icon-color);
+  }
+  a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+  .btn {
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+    margin-bottom: 20px;
+  }
+  .btn:hover {
+    background-color: var(--btn-hover-bg);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  .login-link {
+    margin-top: 20px;
+    transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+  #passwordSection {
+    display: none;
+    transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }

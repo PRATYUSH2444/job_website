@@ -1,0 +1,351 @@
+@import url('https://fonts.googleapis.com/css2?family=Gilroy:wght@700&display=swap');
+        
+        :root {
+            --bg-color: #1a1a1a;
+            --text-color: #fff;
+            --nav-bg: rgba(26, 26, 26, 0.8);
+            --nav-link-color: #fff;
+            --nav-link-hover-bg: rgba(26, 26, 26, 0.8);
+            --nav-link-hover-color: #fff;
+            --toggle-bg: #ccc;
+            --toggle-before-bg: #fff;
+            --toggle-checked-bg: #333;
+            --toggle-checked-before-bg: #fff;
+            --nav-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+            --nav-border-radius: 30px;
+            --nav-link-padding: 0.5rem 1.5rem;
+            --nav-link-border-radius: 10px;
+            --btn-bg: transparent;
+            --btn-color: #ffffff;
+            --btn-hover-bg: #ffffff;
+            --btn-hover-color: #000000;
+        }
+        [data-theme="dark"] {
+            --bg-color: #1a1a1a;
+            --text-color: #fff;
+            --nav-bg: rgba(26, 26, 26, 0.8);
+            --nav-link-color: #fff;
+            --nav-link-hover-bg: rgba(26, 26, 26, 0.8);
+            --nav-link-hover-color: #fff;
+            --toggle-bg: #555;
+            --toggle-before-bg: #fff;
+            --toggle-checked-bg: #fff;
+            --toggle-checked-before-bg: #333;
+            --nav-shadow: 0 12px 20px rgba(0, 0, 0, 0.6);
+            --btn-bg: transparent;
+            --btn-color: #ffffff;
+            --btn-hover-bg: #ffffff;
+            --btn-hover-color: #000000;
+        }
+        [data-theme="light"] {
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --nav-bg: #ffffff;
+            --nav-link-color: #000000;
+            --nav-link-hover-bg: rgba(0, 0, 0, 0.1);
+            --nav-link-hover-color: #000000;
+            --toggle-bg: #ccc;
+            --toggle-before-bg: #fff;
+            --toggle-checked-bg: #ccc;
+            --toggle-checked-before-bg: #ccc;
+            --nav-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+            --btn-bg: transparent;
+            --btn-color: #000000;
+            --btn-hover-bg: #000000;
+            --btn-hover-color: #ffffff;
+            --job-count-color: #000000; /* Added for job count text color in light mode */
+            --sub-heading-color: #000000; /* Added for sub-heading color in light mode */
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            min-height: 100vh;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: all 0.5s ease;
+            font-family: 'Gilroy', sans-serif;
+        }       
+        #loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        #content {
+            display: block;
+        }
+        /* Highlighted nav-container and nav bar related CSS */
+        nav {
+            background-color: var(--nav-bg);
+            position: fixed;
+            padding: 0.5rem 1rem; /* Reduced padding to reduce height */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--nav-shadow);
+            border-radius: var(--nav-border-radius);
+            animation: fadeIn 1s ease-in-out;
+            border: 2px solid transparent;
+            margin: 20px auto; /* Center the navbar */
+            width: 80%; /* Reduced width of the navbar */
+            gap: 10px; /* Added gap from both ends */
+            height: 40px;
+            left: 120px;
+        }
+        .nav-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            z-index: 1000;
+            position: fixed;
+            background-color: black;
+        }
+        nav a {
+            color: var(--nav-link-color);
+            text-decoration: none;
+            margin: 0;
+            transition: all 0.3s ease;
+            position: relative;
+            text-transform: uppercase;
+            font-family: 'Gilroy', sans-serif;
+            font-weight: 900; /* Increased font weight */
+            font-size: 0.8rem; /* Reduced font size */
+        }
+        .nav-links {
+            display: flex;
+            gap: 0.25rem;
+            margin-left: 3rem;
+        }
+        .nav-links a {
+            padding: 0.5rem 1rem;
+            border-radius: var(--nav-link-border-radius);
+            background-color: transparent;
+            transition: all 0.3s ease;
+        }
+        .nav-links a:hover {
+            box-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #00ffff;
+            background-color: var(--nav-link-hover-bg);
+            color: var(--nav-link-hover-color);
+            transform: translateY(-2px);
+        }
+        .nav-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-left: 2rem;
+            
+        }
+        /* End of highlighted nav-container and nav bar related CSS */
+        #log:active{
+            scale: 0.8;
+        }
+        #sign:active{
+            scale: 0.8;
+        }
+        .theme-switch-wrapper {
+            display: flex;
+            align-items: center;
+            position: fixed;
+            top: 30px;
+            left: 20px;
+            z-index: 1000;
+        }
+        .theme-switch {
+            display: inline-block;
+            height: 34px;
+            position: relative;
+            width: 60px;
+        }
+        .theme-switch input {
+            display: none;
+        }
+        .slider {
+            background-color: var(--toggle-bg);
+            bottom: 0;
+            cursor: pointer;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            transition: .4s ease;
+        }
+        .slider:before {
+            background-color: var(--toggle-before-bg);
+            bottom: 4px;
+            content: "";
+            height: 26px;
+            left: 4px;
+            position: absolute;
+            transition: .4s ease;
+            width: 26px;
+        }
+        input:checked + .slider {
+            background-color: var(--toggle-checked-bg);
+        }
+        input:checked + .slider:before {
+            transform: translateX(26px);
+            background-color: var(--toggle-checked-before-bg);
+        }
+        .slider.round {
+            border-radius: 34px;
+        }
+        .slider.round:before {
+            border-radius: 50%;
+        }
+        .theme-switch .bx {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+            z-index: 1;
+            transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+        .theme-switch .bx-sun {
+            left: 6px;
+            color: var(--sun-icon-color);
+        }
+        .theme-switch .bx-moon {
+            right: 6px;
+            color: var(--moon-icon-color);
+        }
+        .btn {
+            background-color: var(--btn-bg);
+            color: var(--btn-color);
+            padding: 0.5rem 1rem;
+            border: 2px solid var(--btn-color);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-family: 'Gilroy', sans-serif;
+            font-weight: 700;
+            position: relative;
+            overflow: hidden;
+            font-size: 0.8rem; /* Reduced font size */
+        }
+        .btn:hover {
+            background-color: var(--btn-hover-bg);
+            color: var(--btn-hover-color);
+            transform: translateY(-2px);
+            box-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #00ffff;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .absolute {
+            position: absolute;
+        }
+        .inline-block {
+            display: inline-block;
+        }
+        .loader {
+            display: flex;
+            margin: 0.25em 0;
+        }
+        .w-2 {
+            width: 0.5em;
+        }
+        .dash {
+            animation: dashArray 2s ease-in-out infinite,
+            dashOffset 2s linear infinite;
+        }
+        .spin {
+            animation: spinDashArray 2s ease-in-out infinite,
+            spin 8s ease-in-out infinite,
+            dashOffset 2s linear infinite;
+            transform-origin: center;
+        }
+        @keyframes dashArray {
+            0% {
+                stroke-dasharray: 0 1 359 0;
+            }
+            50% {
+                stroke-dasharray: 0 359 1 0;
+            }
+            100% {
+                stroke-dasharray: 359 1 0 0;
+            }
+        }
+        @keyframes spinDashArray {
+            0% {
+                stroke-dasharray: 270 90;
+            }
+            50% {
+                stroke-dasharray: 0 360;
+            }
+            100% {
+                stroke-dasharray: 270 90;
+            }
+        }
+        @keyframes dashOffset {
+            0% {
+                stroke-dashoffset: 365;
+            }
+            100% {
+                stroke-dashoffset: 5;
+            }
+        }
+        @keyframes spin {
+            0% {
+                rotate: 0deg;
+            }
+            12.5%,
+            25% {
+                rotate: 270deg;
+            }
+            37.5%,
+            50% {
+                rotate: 540deg;
+            }
+            62.5%,
+            75% {
+                rotate: 810deg;
+            }
+            87.5%,
+            100% {
+                rotate: 1080deg;
+            }
+        }
+
+        .logo {
+            font-family: "Pacifico", cursive;
+            font-weight: 400;
+            font-style: normal;
+          }
+
+          .job-count {
+            font-size: 1.5rem;
+            color: var(--job-count-color); /* Updated to use the new variable */
+            margin-bottom: 1rem;
+          }
+
+          .search-container {
+            padding-top: 60px;
+            text-align: center;
+            margin-top: 2rem;
+          }
+
+          .sub-heading {
+            font-size: 1.5rem;
+            color: var(--sub-heading-color); /* Updated to use the new variable for light mode */
+            margin-bottom: 1rem;
+          }
+
+          .sub-heading1 {
+            font-size: 1rem;
+            color: var(--sub-heading-color); /* Updated to use the new variable for light mode */
+            margin-bottom: 1rem;
+            font-weight: 500;
+          }

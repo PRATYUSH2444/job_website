@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Cards</title>
+    <link rel="stylesheet" href="nav_style.css">
+    <link rel="stylesheet" href="../registration_pages/dashboard.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .typewriter {
+            display: none;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 0.15em solid #fff;
+            margin: 0 auto;
+            letter-spacing: 0.15em;
+            animation: typing 1.5s steps(40, end), blink-caret 0.5s step-end infinite;
+        }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #fff; }
+        }
+        @keyframes fadeOut {
+            to { opacity: 0; }
+        }
+        .typewriter-container {
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 20px;
+        }
+        .typewriter {
+            font-size: 1.2em;
+            color: var(--typewriter-color, #fff);
+        }
+        [data-theme="light"] .typewriter {
+            --typewriter-color: #000;
+        }
+        [data-theme="dark"] .typewriter {
+            --typewriter-color: #fff;
+        }
+        /* From Uiverse.io by mobinkakei */ 
+        #wifi-loader {
+          --background: #62abff;
+          --front-color: #4f29f0;
+          --back-color: #c3c8de;
+          --text-color: #414856;
+          width: 64px;
+          height: 64px;
+          border-radius: 50px;
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        #wifi-loader svg {
+          position: absolute;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        #wifi-loader svg circle {
+          position: absolute;
+          fill: none;
+          stroke-width: 6px;
+          stroke-linecap: round;
+          stroke-linejoin: round;
+          transform: rotate(-100deg);
+          transform-origin: center;
+        }
+
+        #wifi-loader svg circle.back {
+          stroke: var(--back-color);
+        }
+
+        #wifi-loader svg circle.front {
+          stroke: var(--front-color);
+        }
+
+        #wifi-loader svg.circle-outer {
+          height: 86px;
+          width: 86px;
+        }
+
+        #wifi-loader svg.circle-outer circle {
+          stroke-dasharray: 62.75 188.25;
+        }
+
+        #wifi-loader svg.circle-outer circle.back {
+          animation: circle-outer135 1.8s ease infinite 0.3s;
+        }
+
+        #wifi-loader svg.circle-outer circle.front {
+          animation: circle-outer135 1.8s ease infinite 0.15s;
+        }
+
+        #wifi-loader svg.circle-middle {
+          height: 60px;
+          width: 60px;
+        }
+
+        #wifi-loader svg.circle-middle circle {
+          stroke-dasharray: 42.5 127.5;
+        }
+
+        #wifi-loader svg.circle-middle circle.back {
+          animation: circle-middle6123 1.8s ease infinite 0.25s;
+        }
+
+        #wifi-loader svg.circle-middle circle.front {
+          animation: circle-middle6123 1.8s ease infinite 0.1s;
+        }
+
+        #wifi-loader svg.circle-inner {
+          height: 34px;
+          width: 34px;
+        }
+
+        #wifi-loader svg.circle-inner circle {
+          stroke-dasharray: 22 66;
+        }
+
+        #wifi-loader svg.circle-inner circle.back {
+          animation: circle-inner162 1.8s ease infinite 0.2s;
+        }
+
+        #wifi-loader svg.circle-inner circle.front {
+          animation: circle-inner162 1.8s ease infinite 0.05s;
+        }
+
+        #wifi-loader .text {
+          position: absolute;
+          bottom: -40px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-transform: lowercase;
+          font-weight: 500;
+          font-size: 14px;
+          letter-spacing: 0.2px;
+        }
+
+        #wifi-loader .text::before, #wifi-loader .text::after {
+          content: attr(data-text);
+        }
+
+        #wifi-loader .text::before {
+          color: var(--text-color);
+        }
+
+        #wifi-loader .text::after {
+          color: var(--front-color);
+          animation: text-animation76 3.6s ease infinite;
+          position: absolute;
+          left: 0;
+        }
+
+        @keyframes circle-outer135 {
+          0% {
+            stroke-dashoffset: 25;
+          }
+
+          25% {
+            stroke-dashoffset: 0;
+          }
+
+          65% {
+            stroke-dashoffset: 301;
+          }
+
+          80% {
+            stroke-dashoffset: 276;
+          }
+
+          100% {
+            stroke-dashoffset: 276;
+          }
+        }
+
+        @keyframes circle-middle6123 {
+          0% {
+            stroke-dashoffset: 17;
+          }
+
+          25% {
+            stroke-dashoffset: 0;
+          }
+
+          65% {
+            stroke-dashoffset: 204;
+          }
+
+          80% {
+            stroke-dashoffset: 187;
+          }
+
+          100% {
+            stroke-dashoffset: 187;
+          }
+        }
+
+        @keyframes circle-inner162 {
+          0% {
+            stroke-dashoffset: 9;
+          }
+
+          25% {
+            stroke-dashoffset: 0;
+          }
+
+          65% {
+            stroke-dashoffset: 106;
+          }
+
+          80% {
+            stroke-dashoffset: 97;
+          }
+
+          100% {
+            stroke-dashoffset: 97;
+          }
+        }
+
+        @keyframes text-animation76 {
+          0% {
+            clip-path: inset(0 100% 0 0);
+          }
+
+          50% {
+            clip-path: inset(0);
+          }
+
+          100% {
+            clip-path: inset(0 0 0 100%);
+          }
+        }
+        
+        #loader-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+        }
+        
+        #dashboard-content {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="loader-container">
+        <div id="wifi-loader">
+            <svg class="circle-outer" viewBox="0 0 86 86">
+                <circle class="back" cx="43" cy="43" r="40"></circle>
+                <circle class="front" cx="43" cy="43" r="40"></circle>
+                <circle class="new" cx="43" cy="43" r="40"></circle>
+            </svg>
+            <svg class="circle-middle" viewBox="0 0 60 60">
+                <circle class="back" cx="30" cy="30" r="27"></circle>
+                <circle class="front" cx="30" cy="30" r="27"></circle>
+            </svg>
+            <svg class="circle-inner" viewBox="0 0 34 34">
+                <circle class="back" cx="17" cy="17" r="14"></circle>
+                <circle class="front" cx="17" cy="17" r="14"></circle>
+            </svg>
+            <div class="text" data-text="Searching"></div>
+        </div>
+    </div>
+    
+    <div id="dashboard-content">
+        <div class="nav-container">
+            <nav>
+                <div class="logo">
+                    <h2>HS</h2>
+                    <a href="nav.html" id="logo1">HireSkills</a>
+                </div>
+                <div class="typewriter-container">
+                    <h1 class="typewriter">Job Search</h1>
+                    <h1 class="typewriter">Find Your Dream Job</h1>
+                    <h1 class="typewriter">Explore Opportunities</h1>
+                    <h1 class="typewriter">Career Advancement</h1>
+                    <h1 class="typewriter">Apply Now</h1>
+                </div>
+                <div class="profile-container">
+                    <div class="profile-avatar-circle text-4xl pr-2">
+                        <i class="fas fa-user-circle profile-avatar-icon"></i>
+                    </div>
+                    <span class="profile-text">User</span>
+                </div>
+            </nav>
+            <div id="content">
+                <div class="theme-switch-wrapper">
+                    <label class="theme-switch" for="theme-toggle">
+                        <input type="checkbox" id="theme-toggle" checked>
+                        <div class="slider round"></div>
+                        <i class='bx bx-sun'></i>
+                        <i class='bx bx-moon'></i>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="search-container">
+            <div class="search-bar">
+                <input type="text" placeholder="Search by job, company or skills" class="search-input" id="search-input">
+                <div class="location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <input type="text" placeholder="Location" class="search-filter" id="location-filter">
+                </div>
+                <div class="experience">
+                    <i class="fas fa-briefcase"></i>
+                    <select class="search-filter" id="experience-filter">
+                        <option value="" disabled selected>Experience</option>
+                        <option value="fresher">Fresher</option>
+                        <option value="1-2 years">1-2 years</option>
+                        <option value="3-5 years">3-5 years</option>
+                        <option value="5+ years">5+ years</option>
+                    </select>
+                </div>
+                <button class="search-btn" id="search-btn">Search</button>
+                <button class="reset-btn" id="reset-btn">Reset</button>
+            </div>
+        </div>
+        <div class="cards-container" id="cards-container">
+            <!-- Your existing card content here -->
+            <div class="company-card">
+              <i class="ri-google-fill text-4xl"></i>
+              <div class="company-name">Google</div>
+              <div class="job-role">Software Engineer</div>
+              <div class="location">Location: New York</div>
+              <div class="package">Package: ₹70,00,000</div>
+              <div class="experience">Experience: fresher</div>
+          </div>
+  
+          <!-- Card 2 -->
+          <div class="company-card">
+              <i class="ri-microsoft-fill text-4xl"></i>
+              <div class="company-name">Microsoft</div>
+              <div class="job-role">Frontend Developer</div>
+              <div class="location">Location: San Francisco</div>
+              <div class="package">Package: ₹80,00,000</div>
+              <div class="experience">Experience: 1-2 years</div>
+          </div>
+  
+          <!-- Card 3 -->
+          <div class="company-card">
+              <i class="ri-amazon-fill text-4xl"></i>
+              <div class="company-name">Amazon</div>
+              <div class="job-role">Backend Developer</div>
+              <div class="location">Location: Austin</div>
+              <div class="package">Package: ₹75,00,000</div>
+              <div class="experience">Experience: 3-5 years</div>
+          </div>
+  
+          <!-- Card 4 -->
+          <div class="company-card">
+              <i class="ri-netflix-fill text-4xl"></i>
+              <div class="company-name">Netflix</div>
+              <div class="job-role">Data Scientist</div>
+              <div class="location">Location: Boston</div>
+              <div class="package">Package: ₹90,00,000</div>
+              <div class="experience">Experience: 5+ years</div>
+          </div>
+  
+          <!-- Card 5 -->
+          <div class="company-card">
+              <i class="ri-linkedin-box-fill text-4xl"></i>
+              <div class="company-name">LinkedIn</div>
+              <div class="job-role">AI Engineer</div>
+              <div class="location">Location: Seattle</div>
+              <div class="package">Package: ₹95,00,000</div>
+              <div class="experience">Experience: 3-5 years</div>
+          </div>
+  
+          <!-- Card 6 -->
+          <div class="company-card">
+              <i class="ri-facebook-box-fill text-4xl"></i>
+              <div class="company-name">Meta</div>
+              <div class="job-role">Cloud Engineer</div>
+              <div class="location">Location: Chicago</div>
+              <div class="package">Package: ₹85,00,000</div>
+              <div class="experience">Experience: 1-2 years</div>
+          </div>
+  
+          <!-- Card 7 -->
+          <div class="company-card">
+              <i class="ri-twitter-fill text-4xl"></i>
+              <div class="company-name">Twitter</div>
+              <div class="job-role">DevOps Engineer</div>
+              <div class="location">Location: Denver</div>
+              <div class="package">Package: ₹88,00,000</div>
+              <div class="experience">Experience: 5+ years</div>
+          </div>
+  
+          <!-- Card 8 -->
+          <div class="company-card">
+              <i class="ri-google-fill text-4xl"></i>
+              <div class="company-name">Google</div>
+              <div class="job-role">Security Analyst</div>
+              <div class="location">Location: Miami</div>
+              <div class="package">Package: ₹72,00,000</div>
+              <div class="experience">Experience: fresher</div>
+          </div>
+  
+          <!-- Card 9 -->
+          <div class="company-card">
+              <i class="ri-microsoft-fill text-4xl"></i>
+              <div class="company-name">Microsoft</div>
+              <div class="job-role">Mobile App Developer</div>
+              <div class="location">Location: Los Angeles</div>
+              <div class="package">Package: ₹78,00,000</div>
+              <div class="experience">Experience: 1-2 years</div>
+          </div>
+  
+          <!-- Card 10 -->
+          <div class="company-card">
+              <i class="ri-amazon-fill text-4xl"></i>
+              <div class="company-name">Amazon</div>
+              <div class="job-role">Product Manager</div>
+              <div class="location">Location: Atlanta</div>
+              <div class="package">Package: ₹1,00,00,000</div>
+              <div class="experience">Experience: 5+ years</div>
+          </div>
+  
+          <!-- Card 11 -->
+          <div class="company-card">
+              <i class="ri-netflix-fill text-4xl"></i>
+              <div class="company-name">Netflix</div>
+              <div class="job-role">Tech Lead</div>
+              <div class="location">Location: San Diego</div>
+              <div class="package">Package: ₹1,10,00,000</div>
+              <div class="experience">Experience: 3-5 years</div>
+          </div>
+  
+          <!-- Card 12 -->
+          <div class="company-card">
+              <i class="ri-linkedin-box-fill text-4xl"></i>
+              <div class="company-name">LinkedIn</div>
+              <div class="job-role">Full Stack Developer</div>
+              <div class="location">Location: Dallas</div>
+              <div class="package">Package: ₹95,00,000</div>
+              <div class="experience">Experience: 1-2 years</div>
+          </div>
+  
+          <!-- Card 13 -->
+          <div class="company-card">
+              <i class="ri-facebook-box-fill text-4xl"></i>
+              <div class="company-name">Meta</div>
+              <div class="job-role">Database Administrator</div>
+              <div class="location">Location: Portland</div>
+              <div class="package">Package: ₹85,00,000</div>
+              <div class="experience">Experience: fresher</div>
+          </div>
+  
+          <!-- Card 14 -->
+          <div class="company-card">
+              <i class="ri-twitter-fill text-4xl"></i>
+              <div class="company-name">Twitter</div>
+              <div class="job-role">Network Engineer</div>
+              <div class="location">Location: Salt Lake City</div>
+              <div class="package">Package: ₹80,00,000</div>
+              <div class="experience">Experience: 3-5 years</div>
+          </div>
+  
+          <!-- Card 15 -->
+          <div class="company-card">
+              <i class="ri-google-fill text-4xl"></i>
+              <div class="company-name">Google</div>
+              <div class="job-role">Machine Learning Engineer</div>
+              <div class="location">Location: Houston</div>
+              <div class="package">Package: ₹95,00,000</div>
+              <div class="experience">Experience: 5+ years</div>
+          </div>
+  
+          <!-- Card 16 -->
+          <div class="company-card">
+              <i class="ri-microsoft-fill text-4xl"></i>
+              <div class="company-name">Microsoft</div>
+              <div class="job-role">UI/UX Designer</div>
+              <div class="location">Location: San Jose</div>
+              <div class="package">Package: ₹70,00,000</div>
+              <div class="experience">Experience: 1-2 years</div>
+          </div>
+  
+          <!-- Card 17 -->
+          <div class="company-card">
+              <i class="ri-amazon-fill text-4xl"></i>
+              <div class="company-name">Amazon</div>
+              <div class="job-role">Game Developer</div>
+              <div class="location">Location: Orlando</div>
+              <div class="package">Package: ₹75,00,000</div>
+              <div class="experience">Experience: fresher</div>
+          </div>
+  
+          <!-- Card 18 -->
+          <div class="company-card">
+              <i class="ri-netflix-fill text-4xl"></i>
+              <div class="company-name">Netflix</div>
+              <div class="job-role">System Architect</div>
+              <div class="location">Location: Detroit</div>
+              <div class="package">Package: ₹90,00,000</div>
+              <div class="experience">Experience: 3-5 years</div>
+          </div>
+  
+          <!-- Card 19 -->
+          <div class="company-card">
+              <i class="ri-linkedin-box-fill text-4xl"></i>
+              <div class="company-name">LinkedIn</div>
+              <div class="job-role">Blockchain Developer</div>
+              <div class="location">Location: Phoenix</div>
+              <div class="package">Package: ₹1,00,00,000</div>
+              <div class="experience">Experience: 5+ years</div>
+          </div>
+  
+          <!-- Card 20 -->
+          <div class="company-card">
+              <i class="ri-facebook-box-fill text-4xl"></i>
+              <div class="company-name">Meta</div>
+              <div class="job-role">QA Engineer</div>
+              <div class="location">Location: Tampa</div>
+              <div class="package">Package: ₹72,00,000</div>
+              <div class="experience">Experience: fresher</div>
+          </div>
+  
+          <!-- Card 21 -->
+          <div class="company-card">
+              <i class="ri-twitter-fill text-4xl"></i>
+              <div class="company-name">Twitter</div>
+              <div class="job-role">Site Reliability Engineer</div>
+              <div class="location">Location: Las Vegas</div>
+              <div class="package">Package: ₹88,00,000</div>
+              <div class="experience">Experience: 1-2 years</div>
+          </div>
+  
+          <!-- Card 22 -->
+          <div class="company-card">
+              <i class="ri-google-fill text-4xl"></i>
+              <div class="company-name">Google</div>
+              <div class="job-role">Solutions Architect</div>
+              <div class="location">Location: Raleigh</div>
+              <div class="package">Package: ₹1,10,00,000</div>
+              <div class="experience">Experience: 5+ years</div>
+          </div>
+  
+          <!-- Card 23 -->
+          <div class="company-card">
+              <i class="ri-microsoft-fill text-4xl"></i>
+              <div class="company-name">Microsoft</div>
+              <div class="job-role">Game Designer</div>
+              <div class="location">Location: Memphis</div>
+              <div class="package">Package: ₹90,00,000</div>
+              <div class="experience">Experience: 3-5 years</div>
+          </div>
+  
+          <!-- Card 24 -->
+          <div class="company-card">
+              <i class="ri-amazon-fill text-4xl"></i>
+              <div class="company-name">Amazon</div>
+              <div class="job-role">Data Engineer</div>
+              <div class="location">Location: Minneapolis</div>
+              <div class="package">Package: ₹85,00,000</div>
+              <div class="experience">Experience: fresher</div>
+          </div>
+  
+          <!-- Card 25 -->
+          <div class="company-card">
+              <i class="ri-netflix-fill text-4xl"></i>
+              <div class="company-name">Netflix</div>
+              <div class="job-role">DevOps Manager</div>
+              <div class="location">Location: St. Louis</div>
+              <div class="package">Package: ₹95,00,000</div>
+              <div class="experience">Experience: 1-2 years</div>
+          </div>
+  
+          <!-- Card 26 -->
+          <div class="company-card">
+              <i class="ri-linkedin-box-fill text-4xl"></i>
+              <div class="company-name">LinkedIn</div>
+              <div class="job-role">IT Consultant</div>
+              <div class="location">Location: Pittsburgh</div>
+              <div class="package">Package: ₹1,00,00,000</div>
+              <div class="experience">Experience: 5+ years</div>
+          </div>
+  
+          <!-- Card 27 -->
+          <div class="company-card">
+              <i class="ri-facebook-box-fill text-4xl"></i>
+              <div class="company-name">Meta</div>
+              <div class="job-role">AI Researcher</div>
+              <div class="location">Location: Nashville</div>
+              <div class="package">Package: ₹1,10,00,000</div>
+              <div class="experience">Experience: 3-5 years</div>
+          </div>
+  
+          <!-- Card 28 -->
+          <div class="company-card">
+              <i class="ri-twitter-fill text-4xl"></i>
+              <div class="company-name">Twitter</div>
+              <div class="job-role">Business Analyst</div>
+              <div class="location">Location: Indianapolis</div>
+              <div class="package">Package: ₹75,00,000</div>
+              <div class="experience">Experience: fresher</div>
+          </div>
+  
+          <!-- Card 29 -->
+          <div class="company-card">
+              <i class="ri-google-fill text-4xl"></i>
+              <div class="company-name">Google</div>
+              <div class="job-role">Cloud Architect</div>
+              <div class="location">Location: San Francisco</div>
+              <div class="package">Package: ₹1,20,00,000</div>
+              <div class="experience">Experience: 5+ years</div>
+          </div>
+  
+          <!-- Card 30 -->
+          <div class="company-card">
+              <i class="ri-microsoft-fill text-4xl"></i>
+              <div class="company-name">Microsoft</div>
+              <div class="job-role">Cybersecurity Specialist</div>
+              <div class="location">Location: Seattle</div>
+              <div class="package">Package: ₹95,00,000</div>
+              <div class="experience">Experience: 3-5 years</div>
+          </div>
+  
+          <!-- Card 31 -->
+          <div class="company-card">
+              <i class="ri-amazon-fill text-4xl"></i>
+              <div class="company-name">Amazon</div>
+              <div class="job-role">UX Researcher</div>
+              <div class="location">Location: New York</div>
+              <div class="package">Package: ₹80,00,000</div>
+              <div class="experience">Experience: 1-2 years</div>
+          </div>
+  
+          <!-- Card 32 -->
+          <div class="company-card">
+              <i class="ri-netflix-fill text-4xl"></i>
+              <div class="company-name">Netflix</div>
+              <div class="job-role">Content Recommendation Engineer</div>
+              <div class="location">Location: Los Angeles</div>
+              <div class="package">Package: ₹1,05,00,000</div>
+              <div class="experience">Experience: 3-5 years</div>
+          </div>
+  
+          <!-- Card 33 -->
+          <div class="company-card">
+              <i class="ri-linkedin-box-fill text-4xl"></i>
+              <div class="company-name">LinkedIn</div>
+              <div class="job-role">Data Analyst</div>
+              <div class="location">Location: Sunnyvale</div>
+              <div class="package">Package: ₹70,00,000</div>
+              <div class="experience">Experience: fresher</div>
+          </div>
+  
+          <!-- Card 34 -->
+          <div class="company-card">
+              <i class="ri-facebook-box-fill text-4xl"></i>
+              <div class="company-name">Meta</div>
+              <div class="job-role">AR/VR Developer</div>
+              <div class="location">Location: Menlo Park</div>
+              <div class="package">Package: ₹1,15,00,000</div>
+              <div class="experience">Experience: 5+ years</div>
+          </div>
+  
+          <!-- Card 35 -->
+          <div class="company-card">
+              <i class="ri-twitter-fill text-4xl"></i>
+              <div class="company-name">Twitter</div>
+              <div class="job-role">Machine Learning Engineer</div>
+              <div class="location">Location: San Francisco</div>
+              <div class="package">Package: ₹1,00,00,000</div>
+              <div class="experience">Experience: 3-5 years</div>
+          </div>
+        </div>
+    </div>
+    <script src="dashboard.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const phrases = document.querySelectorAll('.typewriter');
+            let currentIndex = 0;
+
+            function showNextPhrase() {
+                phrases[currentIndex].style.display = 'none';
+                currentIndex = (currentIndex + 1) % phrases.length;
+                phrases[currentIndex].style.display = 'block';
+                phrases[currentIndex].style.animation = 'typing 1.5s steps(40, end), blink-caret 0.5s step-end infinite';
+            }
+
+            function startAnimation() {
+                phrases[currentIndex].style.display = 'block';
+                phrases[currentIndex].addEventListener('animationend', function handler(e) {
+                    if (e.animationName === 'typing') {
+                        setTimeout(() => {
+                            this.style.animation = 'fadeOut 0.5s forwards';
+                            this.addEventListener('animationend', function fadeOutHandler(e) {
+                                if (e.animationName === 'fadeOut') {
+                                    showNextPhrase();
+                                    this.removeEventListener('animationend', fadeOutHandler);
+                                }
+                            });
+                        }, 500);
+                        this.removeEventListener('animationend', handler);
+                    }
+                });
+            }
+
+            startAnimation();
+            setInterval(startAnimation, 2500); // Restart the loop every 2.5 seconds for a faster animation
+        });
+
+        // Loader functionality
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loader-container').style.display = 'none';
+                document.getElementById('dashboard-content').style.display = 'block';
+            }, 3000); // 3 seconds delay, adjust as needed
+        });
+    </script>
+</body>
+</html>
